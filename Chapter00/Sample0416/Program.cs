@@ -5,13 +5,10 @@
         static void Main(string[] args)
         {
             int i = 0;
-            while (true)
+            while (i < 10)
             {
-                if (i < 10)
-                {
-                    Console.WriteLine("Hello, World!");
-                    i++;
-                }
+                Console.WriteLine("Hello, World!");
+                i++;
             }
         }
     }
