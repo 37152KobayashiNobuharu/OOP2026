@@ -10,10 +10,10 @@ namespace DistanceConverter
             {
                 PrintFeetToMeterList(1,10);     //メートルへの変換
             }
-            if (args.Length >= 1 && args[0] == "-tof")
-            {
-                PrintMeterToFeetList(1, 10);     //フィートへの変換
-            }
+            else if  (args.Length >= 1 && args[0] == "-tof")
+                {
+                    PrintMeterToFeetList(1, 10);     //フィートへの変換
+                }
             else
             {
                 Console.WriteLine("引数エラー");
