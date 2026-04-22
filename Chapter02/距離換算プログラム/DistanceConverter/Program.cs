@@ -8,12 +8,12 @@ namespace DistanceConverter
         {
             if (args.Length >= 1 && args[0] == "-tom")
             {
-                PrintFeetToMeterList(1,10);     //メートルへの変換
+                PrintFeetToMeterList(int.Parse(args[1]), int.Parse(args[2]));     //メートルへの変換
             }
-            else if  (args.Length >= 1 && args[0] == "-tof")
-                {
-                    PrintMeterToFeetList(1, 10);     //フィートへの変換
-                }
+            else if (args.Length >= 1 && args[0] == "-tof")
+            {
+                PrintMeterToFeetList(int.Parse(args[1]), int.Parse(args[2]));     //フィートへの変換
+            }
             else
             {
                 Console.WriteLine("引数エラー");
@@ -37,8 +37,6 @@ namespace DistanceConverter
                 Console.WriteLine($"{meter}m = {feet:0.000}ft");
             }
         }
-
-
 
         //フィートからメートルを求める
         static double FeetToMeter(int feet)
