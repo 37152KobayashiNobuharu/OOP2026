@@ -12,6 +12,6 @@ namespace SalesCalculator {
         //商品カテゴリー
         public string ProductCategory { get; set; } = string.Empty;
         //売上高
-        public int Amount { get; set; } 
+        public int Amount { get; set; }
     }
 }

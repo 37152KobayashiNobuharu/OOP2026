@@ -11,8 +11,24 @@ namespace SalesCalculator {
         private readonly List<Sale> _sales;
 
         //コンストラクタ
-        public SalesCounter(List<Sale> sales) {
-            _sales = sales;
+        public SalesCounter(string filePath) {
+            _sales = ReadSales(filePath);
+        }
+
+        public  List<Sale> ReadSales(string filePath) {
+
+            List<Sale> sales = new List<Sale>(); //リスト
+            string[] lines = File.ReadAllLines(filePath);
+            foreach (string line in lines) {
+                string[] items = line.Split(',');
+                Sale sale = new Sale {
+                    ShopName = items[0],
+                    ProductCategory = items[1],
+                    Amount = int.Parse(items[2])
+                };
+                sales.Add(sale);
+            }
+            return sales;
         }
 
         //店舗別売り上げを求める
@@ -28,7 +44,8 @@ namespace SalesCalculator {
                     //未登録の場合
                     dict[sale.ShopName] = sale.Amount;//新規に売上を登録
                 }
-            }return dict;
+            }
+            return dict;
         }
     }
 }
