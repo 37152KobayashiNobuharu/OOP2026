@@ -1,4 +1,6 @@
 ﻿
+using System.Runtime.CompilerServices;
+
 namespace Exercise01 {
     internal class Program {
         static void Main(string[] args) {
@@ -10,10 +12,13 @@ namespace Exercise01 {
                  new Song("I Will Always Love You", "Whitney Houston", 273),
             };
             PrintSongs(songs);
+
+            
         }
         private static void PrintSongs(Song[] songs) {
-
+            foreach (var Song in songs) {
+                Console.WriteLine($" {Song.Title},{Song.ArtistName},{Song.Length/60}:{Song.Length%60:00}");
+            }
         }
-
     }
 }
