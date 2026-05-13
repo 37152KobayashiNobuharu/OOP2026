@@ -1,23 +1,37 @@
 ﻿
+using Microsoft.VisualBasic.FileIO;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace Exercise01 {
     internal class Program {
         static void Main(string[] args) {
-            var songs = new Song[] {
-                 new Song("Let it be", "The Beatles", 243),
-                 new Song("Bridge Over Troubled Water", "Simon & Garfunkel", 293),
-                 new Song("Close To You", "Carpenters", 276),
-                 new Song("Honesty", "Billy Joel", 231),
-                 new Song("I Will Always Love You", "Whitney Houston", 273),
-            };
-            PrintSongs(songs);
+            while (true) {
 
-            
+                var songs = new List<Song>();
+                Console.WriteLine("*****曲の登録*****");
+                Console.Write("曲名");
+                string? title = Console.ReadLine();
+
+                if (title == "end") {
+                    break;
+                }
+
+                Console.Write("アーティスト名");
+                string? artistName = Console.ReadLine();
+
+                Console.Write("演奏時間(秒)");
+                int length = int.Parse(Console.ReadLine());
+
+                Song song = new Song(title, artistName, length);
+
+                songs.Add(song);
+                PrintSongs(songs);
+            }
         }
-        private static void PrintSongs(Song[] songs) {
+        private static void PrintSongs(IEnumerable<Song> songs) {
             foreach (var Song in songs) {
-                Console.WriteLine($" {Song.Title},{Song.ArtistName},{Song.Length/60}:{Song.Length%60:00}");
+                Console.WriteLine($" {Song.Title},{Song.ArtistName},{Song.Length / 60}:{Song.Length % 60:00}");
             }
         }
     }
