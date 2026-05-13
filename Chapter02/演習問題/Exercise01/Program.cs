@@ -6,9 +6,8 @@ using System.Runtime.CompilerServices;
 namespace Exercise01 {
     internal class Program {
         static void Main(string[] args) {
+            var songs = new List<Song>();
             while (true) {
-
-                var songs = new List<Song>();
                 Console.WriteLine("*****曲の登録*****");
                 Console.Write("曲名");
                 string? title = Console.ReadLine();
@@ -26,8 +25,8 @@ namespace Exercise01 {
                 Song song = new Song(title, artistName, length);
 
                 songs.Add(song);
-                PrintSongs(songs);
             }
+            PrintSongs(songs);
         }
         private static void PrintSongs(IEnumerable<Song> songs) {
             foreach (var Song in songs) {
