@@ -2,12 +2,14 @@
 namespace Exercise02 {
     internal class Program {
         static void Main(string[] args) {
-            PrintFeetToMetorList(1, 10);
-                    private static readonly double ratio = 0.3048;  //定数
+            PrintInchToMetorList(1, 10);
 
         }
-        private static void PrintFeetToMetorList(int start, int end) {
-            
+        private static void PrintInchToMetorList(int start, int end) {
+            for (int Inch = start; Inch <= end; Inch++) {
+                double inch = InchConverter.ToInch(Inch);
+                Console.WriteLine($"{Inch}Inch = {inch:0.000}M");
+            }
 
 
 
