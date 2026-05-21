@@ -39,9 +39,9 @@ namespace Exercise02 {
 
         private static void Exercise2_3(List<string> cities) {
             //できたらGitのコメント「問題3.2.3完成」
-            var names = cities.Where(s => s.Contains('o'));
-            foreach (var item in cities) {
-                Console.WriteLine(names);
+            var names = cities.Where(s => s.Contains('o')).ToArray();
+            foreach (var item in names) {
+                Console.WriteLine(item);
             }
         }
 
