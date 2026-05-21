@@ -34,11 +34,17 @@ namespace Exercise01 {
         }
 
         private static void Exercise3(List<int> numbers) {
-
+            var query = numbers.Where(s => 50 >= s);
+            foreach (var s in query) {
+                Console.WriteLine(s);
+            }
         }
 
         private static void Exercise4(List<int> numbers) {
-
+            var select = numbers.Select(s => s * 2).ToList();
+            foreach (var s in select) {
+                Console.WriteLine(s);
+            }
         }
     }
 }
