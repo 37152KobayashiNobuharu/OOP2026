@@ -33,12 +33,16 @@ namespace Exercise02 {
 
         private static void Exercise2_2(List<string> cities) {
             //できたらGitのコメント「問題3.2.2完成」
-
+            var names = cities.Count(s =>  s.Contains('o') );
+            Console.WriteLine(names);
         }
 
         private static void Exercise2_3(List<string> cities) {
             //できたらGitのコメント「問題3.2.3完成」
-
+            var names = cities.Where(s => s.Contains('o'));
+            foreach (var item in cities) {
+                Console.WriteLine(names);
+            }
         }
 
         private static void Exercise2_4(List<string> cities) {
