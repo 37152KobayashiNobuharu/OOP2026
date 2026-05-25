@@ -47,7 +47,12 @@ namespace Exercise02 {
 
         private static void Exercise2_4(List<string> cities) {
             //できたらGitのコメント「問題3.2.4完成」
+            var obj = cities.Where(s => s.StartsWith('B')).Select(s => new {s,s.Length});
 
+
+            foreach (var data in obj) {
+                Console.WriteLine(data.s + ":" + data.Length + "文字");
+            }
         }
     }
 }
