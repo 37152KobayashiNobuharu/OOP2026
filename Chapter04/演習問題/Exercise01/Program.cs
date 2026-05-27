@@ -17,41 +17,42 @@ namespace Exercise01 {
         private static void Exercise1(List<string> langs) {
             //foreach文
             Console.WriteLine("foreach文で出力");
-            var names = langs.Where(s => s.Contains('S'));
-            foreach (var item in names) {
-                Console.WriteLine(item);
+            foreach (var lang in langs) {
+                if (lang.Contains('S'))
+                    Console.WriteLine(lang);
             }
 
 
 
             //for文
             Console.WriteLine("\nfor文で出力");
-            var name = langs.Where(s => s.Contains('S')).ToList();
-            for (var i = 0; i < name.Count(); i++) {
-                Console.WriteLine(name[i]);
+            var list = langs.ToList();
+            for (var i = 0; i < langs.Count; i++) {
+                if (langs[i].Contains('S'))
+                    Console.WriteLine(langs[i]);
             }
-
 
 
             //while文
             Console.WriteLine("\nwhile文で出力");
-            var name1 = langs.Where(s => s.Contains('S')).ToList();
-            int l = 0;
-            while (l< name1.Count()) {
-                Console.WriteLine(name1[l]);
-                l++;
+            int count = 0;
+            while (count < langs.Count) {
+                if (langs[count].Contains('S'))
+                    Console.WriteLine(langs[count]);
+                count++;
             }
-
-
-
         }
 
         private static void Exercise2(List<string> langs) {
             //LINQを使用する(Where)
+            var names = langs.Where(s => s.Contains('S'));
+            foreach (var item in names) {
+                Console.WriteLine(item);
+            }
         }
 
         private static void Exercise3(List<string> langs) {
-            
+
         }
     }
 }
