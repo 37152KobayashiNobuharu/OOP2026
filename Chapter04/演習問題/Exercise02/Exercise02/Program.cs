@@ -47,8 +47,15 @@ namespace Exercise02 {
 
         private static void Exercise3() {
             //switch式を使用
-
-
+            var line = Console.ReadLine();
+            var num = int.Parse(line);
+            var text = num switch {
+                >= 500 => num,
+                >= 100 => num * 3,
+                >= 0 => num * 2,
+                _ => num
+            };
+            Console.WriteLine(text);
         }
     }
 }
