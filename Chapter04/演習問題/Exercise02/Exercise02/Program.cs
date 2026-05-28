@@ -15,7 +15,13 @@ namespace Exercise02 {
             var line = Console.ReadLine();
             int num = int.Parse(line);
             if (num < 0) {
-                Console.WriteLine(line);
+                Console.WriteLine(num);
+            } else if (num < 100) {
+                Console.WriteLine(num * 2);
+            } else if (num < 500) {
+                Console.WriteLine(num * 3);
+            } else {
+                Console.WriteLine(num);
             }
         }
 
