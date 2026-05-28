@@ -27,7 +27,22 @@ namespace Exercise02 {
 
         private static void Exercise2() {
             //switch文を使用
-
+            var line = Console.ReadLine();
+            int num = int.Parse(line);
+            switch (num) {
+                case >= 500:
+                    Console.WriteLine(num);
+                    break;
+                case >= 100:
+                    Console.WriteLine(num * 3);
+                    break;
+                case >= 0:
+                    Console.WriteLine(num * 2);
+                    break;
+                default:
+                    Console.WriteLine(num);
+                    break;
+            }
         }
 
         private static void Exercise3() {
