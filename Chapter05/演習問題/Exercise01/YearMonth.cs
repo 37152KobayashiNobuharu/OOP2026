@@ -14,5 +14,10 @@ namespace Exercise01 {
             Year = year;
             Month = month;
         }
+        public bool is21Century {
+            get {
+                return Year >= 2001 && Year <= 2100;
+            }
+        }
     }
 }
