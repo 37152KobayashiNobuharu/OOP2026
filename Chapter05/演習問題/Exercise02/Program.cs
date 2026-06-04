@@ -42,7 +42,12 @@ namespace Exercise02 {
         }
 
         private static void Exercise4(YearMonth[] ymCollection) {
-            
+            var result = FindFirst21C(ymCollection);
+            if (result != null) {
+                Console.WriteLine(result.Year);
+            } else {
+                Console.WriteLine("21世紀のデータはありません");
+            }
         }
 
         private static void Exercise5(YearMonth[] ymCollection) {
