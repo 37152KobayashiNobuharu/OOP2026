@@ -15,6 +15,11 @@ namespace Exercise02 {
             Console.WriteLine("5.2.2");
             Exercise2(ymCollection);
 
+
+            Console.WriteLine("5.2.3");
+            Exercise3(ymCollection);
+
+
             Console.WriteLine("5.2.4");
             Exercise4(ymCollection);
 
@@ -24,7 +29,13 @@ namespace Exercise02 {
         }
 
         private static void Exercise2(YearMonth[] ymCollection) {
-            
+            foreach (YearMonth ym in ymCollection) {
+                Console.WriteLine(ym);
+            }
+        }
+
+        private static void Exercise3(YearMonth[] ymCollection) {
+
         }
 
         private static void Exercise4(YearMonth[] ymCollection) {
