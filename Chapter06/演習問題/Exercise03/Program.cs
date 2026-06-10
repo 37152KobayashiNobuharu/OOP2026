@@ -44,7 +44,8 @@ namespace Exercise03 {
         }
 
         private static void Exercise4(string text) {
-            
+            string[] words = text.Split(' ');
+            Console.WriteLine(words.Length);
         }
 
         private static void Exercise5(string text) {
