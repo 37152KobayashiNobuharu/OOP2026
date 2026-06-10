@@ -49,7 +49,11 @@ namespace Exercise03 {
         }
 
         private static void Exercise5(string text) {
-            
+            var words = text.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+                .Where(words => words.Length <= 4);
+            foreach (var w in words) {
+                Console.WriteLine(w);
+            }
         }
 
         private static void Exercise6(string text) {
