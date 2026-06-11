@@ -1,5 +1,7 @@
 ﻿
 using System.ComponentModel;
+using System.Formats.Tar;
+using System.Linq;
 
 namespace Exercise03 {
     internal class Program {
@@ -78,6 +80,10 @@ namespace Exercise03 {
             }
             for(char ch = 'a';ch <= 'z'; ch++) {
                 Console.WriteLine($"{ch}:{array[ch - 'a']}");
+            }
+            //'a'から順にカウントして集計
+            for (char ch = 'a'; ch <= 'z'; ch++) {
+                Console.WriteLine($"{ch}:{text.Count(c=>c==(ch))}");
             }
         }
     }
