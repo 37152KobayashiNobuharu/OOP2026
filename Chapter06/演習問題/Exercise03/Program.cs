@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Formats.Tar;
 using System.Linq;
+using System.Text;
 
 namespace Exercise03 {
     internal class Program {
@@ -44,7 +45,12 @@ namespace Exercise03 {
         }
 
         private static void Exercise3(string text) {
-
+            var sb = new StringBuilder();
+            foreach (var word in text) {
+                sb.Append(word);
+            }
+            var result = String.Join(" ", text);
+            Console.WriteLine(result); 
         }
 
         private static void Exercise4(string text) {
