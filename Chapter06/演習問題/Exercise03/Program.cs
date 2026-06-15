@@ -47,13 +47,19 @@ namespace Exercise03 {
         private static void Exercise3(string text) {
             var array = text.Split(' ');
             var sb = new StringBuilder();
-            foreach (var word in array) {
-                if (sb.Length > 0  ) {
-                    sb.Append(word + " ");
-                }
+            //foreach (var word in array) {
+            //    if (sb.Length > 0  ) {
+            //        sb.Append(word + " ");
+            //    }
+            //}
+            //var result = String.Join(" ", array);
+            //Console.WriteLine(result+".");
+
+            foreach (var word in array.Skip(1)) {
+                sb.Append(' ');
+                sb.Append(word);
             }
-            var result = String.Join(" ", array);
-            Console.WriteLine(result+"."); 
+            Console.WriteLine(sb + ".");    
         }
 
         private static void Exercise4(string text) {

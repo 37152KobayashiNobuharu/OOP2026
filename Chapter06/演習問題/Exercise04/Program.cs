@@ -2,7 +2,7 @@
     internal class Program {
         static void Main(string[] args) {
             var line = "Novelist=谷崎潤一郎;BestWork=春琴抄;Born=1886";
-            var bookline = $"Novelist={};BestWork={bestWork}"
+            
 
 
 
