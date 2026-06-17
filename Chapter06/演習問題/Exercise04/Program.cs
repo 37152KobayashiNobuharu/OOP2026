@@ -2,12 +2,23 @@
     internal class Program {
         static void Main(string[] args) {
             var line = "Novelist=谷崎潤一郎;BestWork=春琴抄;Born=1886";
+            string[] line1 = line.Split(";");
+            for (int i = 0; i < line1.Length; i++) {
+                string[] line2 = line1[i].Split("=");
+                Console.WriteLine($"{ToJapanese(line2[0])}:{line2[1]}");
+            }
             
 
 
+            //Console.WriteLine(ToJapanese());
+            ////string[] line2 = line1[].Split("=");
+            //foreach (var lines in line2) {
+            //    Console.WriteLine(ToJapanese(line2[2]));
+            }
 
 
-        }
+
+        
         static string ToJapanese(string key) {
             return key switch {
                 "Novelist" => "作家",
