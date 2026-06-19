@@ -7,18 +7,11 @@
                 string[] line2 = line1[i].Split("=");
                 Console.WriteLine($"{ToJapanese(line2[0])}:{line2[1]}");
             }
-            
 
-
-            //Console.WriteLine(ToJapanese());
-            ////string[] line2 = line1[].Split("=");
-            //foreach (var lines in line2) {
-            //    Console.WriteLine(ToJapanese(line2[2]));
-            }
-
-
-
-        
+            //foreach (var item in line.Split(';') {
+            //    var word = 
+            //}
+        }
         static string ToJapanese(string key) {
             return key switch {
                 "Novelist" => "作家",
