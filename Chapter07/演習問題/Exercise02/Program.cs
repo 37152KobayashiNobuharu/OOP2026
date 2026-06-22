@@ -1,4 +1,5 @@
-﻿using Section01;    //Section01プロジェクトにあるBookクラスを利用
+﻿using Section01;
+using System.Security.Cryptography.X509Certificates;    //Section01プロジェクトにあるBookクラスを利用
 
 namespace Exercise02 {
     internal class Program {
@@ -68,7 +69,10 @@ namespace Exercise02 {
         }
 
         private static void Exercise6(List<Book> books) {
-            
+            var tittlePri = books.Where(s => s.Pages >= 400).OrderBy(b => b.Price);
+            foreach (var item in tittlePri) {
+                Console.WriteLine($"{item.Title},{item.Price}");
+            }
         }
 
         private static void Exercise7(List<Book> books) {
