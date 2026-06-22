@@ -61,14 +61,14 @@
         //問題１　合計値を表示（式形式で記述せよ）
         //　　　　出力結果【618】
         private static void Exercise01(int[] numbers) {
-
+            Console.WriteLine(numbers.Sum());
         }
 
 
         //問題２　偶数の最大値を表示（式形式で記述せよ）
         //　　　　出力結果【94】
         private static void Exercise02(int[] numbers) {
-
+            Console.WriteLine(numbers.Max());
         }
 
 
@@ -87,14 +87,16 @@
         //問題５　Countメソッドを使い、小文字の'n'が含まれている都市名がいくつあるかカウントして結果を表示
         //　　　　出力結果【5】
         private static void Exercise05(List<string> cities) {
-      
-        
+            var count = cities.Count(cities => cities.Contains("n"));
+            Console.WriteLine(count);
+
         }
 
         //問題６　全都市数
         //　　　　出力結果【8】
         private static void Exercise06(List<string> cities) {
-        
+            var count = cities.Count();
+            Console.WriteLine(count);
         }
 
         //問題７　各都市名をアルファベット順（昇順）に出力
@@ -123,8 +125,9 @@
         //　　　　  Canberra : 8文字
         //　　　　  Hong Kong : 9文字】
         private static void Exercise08(List<string> cities) {
-    
-        
+            //var names = cities.Exists(s => 6 <= s.Length);
+            //Console.WriteLine(names);
+
         }
 
         //問題９　各都市名と文字数を文字数の昇順で表示
