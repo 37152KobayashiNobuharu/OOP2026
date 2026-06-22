@@ -69,7 +69,7 @@ namespace Exercise02 {
         }
 
         private static void Exercise6(List<Book> books) {
-            var tittlePri = books.Where(s => s.Pages >= 400).OrderBy(b => b.Price);
+            var tittlePri = books.Where(s => s.Pages >= 400).OrderByDescending(b => b.Price);
             foreach (var item in tittlePri) {
                 Console.WriteLine($"{item.Title},{item.Price}");
             }
