@@ -39,16 +39,14 @@ namespace Section01 {
             }
             //③県庁所在地登録処理
             while (true) {
-                menuDisp();
-                string? input = Console.ReadLine();
-                switch (input) {
-                    case "1":
+                switch (menuDisp()) {
+                    case 1:
                         allDisp();
                         break;
-                    case "2":
+                    case 2:
                         serchprefCaptalLocation();
                         break;
-                    case "9":
+                    case 9:
                         return;
                     default:
                         break;
@@ -69,7 +67,7 @@ namespace Section01 {
             }
         }
 
-        private static void menuDisp() {
+        private static int menuDisp() {
             Console.WriteLine();
             Console.WriteLine("****メニュー****");
             Console.WriteLine("1:一覧表示");
@@ -77,6 +75,7 @@ namespace Section01 {
             Console.WriteLine("9:終了");
             Console.Write(">");
 
+            return int.Parse(Console.ReadLine());
         }
     }
 
