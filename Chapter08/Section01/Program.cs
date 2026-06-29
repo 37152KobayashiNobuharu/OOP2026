@@ -10,12 +10,13 @@ namespace Section01 {
         static void Main(string[] args) {
             string? pref, prefCaptlLocation;
             var dict = new Dictionary<string, string>();
-            var flowerDict = new Dictionary<string, string>();
+            //var flowerDict = new Dictionary<string, string>();
             Console.WriteLine("県庁所在地の登録【入力終了:Ctrl + 'Z'】");
 
 
             //①都道府県の入力
             while (true) {
+                Console.WriteLine();
                 Console.Write("都道府県:");
                 pref = Console.ReadLine();
                 if (pref == null) break;
@@ -38,25 +39,14 @@ namespace Section01 {
             }
             //③県庁所在地登録処理
             while (true) {
-                Console.WriteLine("メニュー");
-                Console.WriteLine("1:一覧表示");
-                Console.WriteLine("2:検索");
-                Console.WriteLine("9:終了");
+                menuDisp();
                 string? input = Console.ReadLine();
-
                 switch (input) {
                     case "1":
-                        foreach (var item in flowerDict) {
-                            Console.WriteLine($"{item.Key}の県庁所在地は{item.Value}です。");
-                        }
-
+                        allDisp();
                         break;
                     case "2":
-                        Console.WriteLine("都道府県");
-                        string? serch = Console.ReadLine();
-                        if (flowerDict.ContainsKey(serch)) {
-                            Console.WriteLine($"{serch}の県庁所在地は{flowerDict[serch]}です。");
-                        }
+                        serchprefCaptalLocation();
                         break;
                     case "9":
                         return;
@@ -65,7 +55,31 @@ namespace Section01 {
                 }
             }
         }
+        private static void serchprefCaptalLocation() {
+            Console.Write("都道府県:");
+            string? serch = Console.ReadLine();
+            if (flowerDict.ContainsKey(serch)) {
+                Console.WriteLine($"{serch}の県庁所在地は{flowerDict[serch]}です。");
+            }
+        }
+
+        private static void allDisp() {
+            foreach (var item in flowerDict) {
+                Console.WriteLine($"{item.Key}の県庁所在地は{item.Value}です。");
+            }
+        }
+
+        private static void menuDisp() {
+            Console.WriteLine();
+            Console.WriteLine("****メニュー****");
+            Console.WriteLine("1:一覧表示");
+            Console.WriteLine("2:検索");
+            Console.WriteLine("9:終了");
+            Console.Write(">");
+
+        }
     }
+
 }
 
 
