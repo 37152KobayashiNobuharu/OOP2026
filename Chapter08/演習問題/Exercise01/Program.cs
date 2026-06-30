@@ -22,7 +22,6 @@ namespace Exercise01 {
                         dict[alpha] = 1;
                     }
                 }
-                
             }
             foreach (var item in dict.OrderBy(alpha => alpha.Key)) {
                 Console.WriteLine($"{item.Key}:{item.Value}");
@@ -31,7 +30,21 @@ namespace Exercise01 {
 
         private static void Exercise2(string text) {
             //問題8.1.2完成
+            var sortdict = new SortedDictionary<char, int>();
+            foreach (var alpha in text.ToUpper()) {
+                if ('A' <= alpha && alpha <= 'Z') {
+                    if (sortdict.ContainsKey(alpha)) {
 
+                        sortdict[alpha]++;
+                    } else {
+
+                        sortdict[alpha] = 1;
+                    }
+                }
+            }
+            foreach (var item in sortdict) {
+                Console.WriteLine($"{item.Key}:{item.Value}");
+            }
         }
     }
 }
