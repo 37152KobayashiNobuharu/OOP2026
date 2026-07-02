@@ -31,8 +31,6 @@
             foreach (var item in abbrs.GetAll().Where(w => w.Key.Length == 3)) {
                 Console.WriteLine($"{item.Key}={item.Value}");
             }
-
-            
         }
     }
 }
