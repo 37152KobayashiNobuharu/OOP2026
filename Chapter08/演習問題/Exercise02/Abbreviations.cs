@@ -36,12 +36,7 @@ public class Abbreviations {
 
 
     // 8.2.2（最終的に式形式で記述すること）
-    public bool Remove(string abb) {
-
-
-
-        return true;    //エラー回避のために記述
-    }
+    public bool Remove(string abb) => _dict.Remove(abb);
 
     // Dictionary<TKey, TValue>は、
     // IEnumerable<KeyValuePair<TKey, TValue>>を実装しているので
