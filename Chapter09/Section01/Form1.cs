@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace Section01 {
     public partial class Form1 : Form {
@@ -9,14 +10,32 @@ namespace Section01 {
         private void btGet_Click(object sender, EventArgs e) {
             DateTime date = dtpDate.Value;
             tbOut.Text = date.AddDays((double)nudDay.Value).ToString();
+
         }
 
         private void btBirthCalc_Click(object sender, EventArgs e) {
             DateTime birth = dtpBirth.Value;  //生まれた日付
             DateTime today = DateTime.Today; //今日の日付
-            tbOut1.Text = $"{(today.Year - birth.Year)}歳です";
+            tbOut1.Text = $"{GetAge(birth, today)}歳です";
+            TimeSpan ts = today - birth;
+            tbOut2.Text = $"{ts.Days}日経過";
+            Calendar calendar = CultureInfo.InvariantCulture.Calendar;
+            CalendarWeekRule rule = CalendarWeekRule.FirstDay;
+            DayOfWeek firstDay = DayOfWeek.Sunday;
             
-            tbOut2.Text = $"{today.Date - birth.Date}日経過";
+            tbOut3.Text = $"生まれた{birth:D}" +
+                $"は第{CultureInfo.CurrentCulture.Calendar.GetWeekOfYear
+                (birth, CalendarWeekRule.FirstDay, DayOfWeek.Sunday)
+                }週の{birth:dddd}です";
         }
+        static int GetAge(DateTime birthday, DateTime targetDay) {
+            var age = targetDay.Year - birthday.Year;
+            if (targetDay < birthday.AddYears(age)) {
+                age--;
+            }
+            return age;
+        }
+
+       
     }
 }
