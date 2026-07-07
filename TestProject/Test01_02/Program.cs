@@ -60,28 +60,36 @@
 
         //問題１　合計値を表示（式形式で記述せよ）
         //　　　　出力結果【618】
-        private static void Exercise01(int[] numbers) {
+        private static void Exercise01(int[] numbers) =>
             Console.WriteLine(numbers.Sum());
-        }
+
 
 
         //問題２　偶数の最大値を表示（式形式で記述せよ）
         //　　　　出力結果【94】
-        private static void Exercise02(int[] numbers) {
-            Console.WriteLine(numbers.Max());
-        }
+        private static void Exercise02(int[] numbers) =>
+            Console.WriteLine(numbers.Where(n => n % 2 == 0).Max());
+
 
 
         //問題３　昇順に並べて表示（遅延実行とする）
         //　　　　出力結果【12 14 17 20 31 35 40 48 53 76 87 91 94】
         private static void Exercise03(int[] numbers) {
-            
+            var result = numbers.OrderBy(n => n);
+
+            foreach (var n in result) {
+                Console.WriteLine($"{n}");
+            }
         }
 
         //問題４　10以上50以下の数字のみを表示（即時実行でも可とする）
         //　　　　出力結果【12 14 20 40 35 31 17 48】
         private static void Exercise04(int[] numbers) {
-            
+            var result = numbers.Where(n => n >= 10 && n <= 50);
+
+            foreach (var n in result) {
+                Console.WriteLine($"{n}");
+            }
         }
 
         //問題５　Countメソッドを使い、小文字の'n'が含まれている都市名がいくつあるかカウントして結果を表示
@@ -110,7 +118,9 @@
         //          Paris
         //          Tokyo】
         private static void Exercise07(List<string> cities) {
-        
+            foreach (var city in cities.OrderBy(c => c)) {
+                Console.WriteLine(city);
+            }
 
         }
 
@@ -125,8 +135,9 @@
         //　　　　  Canberra : 8文字
         //　　　　  Hong Kong : 9文字】
         private static void Exercise08(List<string> cities) {
-            //var names = cities.Exists(s => 6 <= s.Length);
-            //Console.WriteLine(names);
+            foreach (var city in cities) {
+                Console.WriteLine($"{city}:{city.Length}文字");
+            }
 
         }
 
@@ -141,9 +152,11 @@
         //          New Delhi : 9文字
         //          Hong Kong : 9文字】
         private static void Exercise09(List<string> cities) {
-        
-        
-        
+            var result = cities.OrderBy(c => c.Length);
+
+            foreach (var city in result) {
+                Console.WriteLine($"{city}:{city.Length}文字");
+            }
         }
 
         //問題１０　６文字の都市名を表示
@@ -151,8 +164,11 @@
         //        【London
         //          Berlin】
         private static void Exercise10(List<string> cities) {
-        
+            var result = cities.Where(c => c.Length == 6);
 
+            foreach (var city in result) {
+                Console.WriteLine(city);
+            }
         }
     }
 }
