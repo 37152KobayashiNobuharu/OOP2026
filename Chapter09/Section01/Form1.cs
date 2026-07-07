@@ -19,14 +19,16 @@ namespace Section01 {
             tbOut1.Text = $"{GetAge(birth, today)}Î‚Å‚·";
             TimeSpan ts = today - birth;
             tbOut2.Text = $"{ts.Days}“úŒo‰ß";
-            Calendar calendar = CultureInfo.InvariantCulture.Calendar;
-            CalendarWeekRule rule = CalendarWeekRule.FirstDay;
-            DayOfWeek firstDay = DayOfWeek.Sunday;
-            
+
             tbOut3.Text = $"¶‚Ü‚ê‚½{birth:D}" +
                 $"‚Í‘æ{CultureInfo.CurrentCulture.Calendar.GetWeekOfYear
-                (birth, CalendarWeekRule.FirstDay, DayOfWeek.Sunday)
-                }T‚Ì{birth:dddd}‚Å‚·";
+                (birth, CalendarWeekRule.FirstDay, DayOfWeek.Sunday)}T‚Ì{birth:dddd}‚Å‚·";
+
+            if (birth.Date == today.Date) {
+                tbOut4.Text = $"’a¶“ú‚Í¡“ú‚Å‚·";
+            } else {
+               tbOut4.Text = $"Ÿ‚Ì’a¶“ú‚Ü‚Å{(birth.Date - today.Date).Days.ToString()}“ú" ;
+            }
         }
         static int GetAge(DateTime birthday, DateTime targetDay) {
             var age = targetDay.Year - birthday.Year;
