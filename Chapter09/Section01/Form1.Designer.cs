@@ -39,6 +39,8 @@
             label5 = new Label();
             メモ = new Label();
             tbOut4 = new TextBox();
+            tbOut5 = new TextBox();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)nudDay).BeginInit();
             SuspendLayout();
             // 
@@ -170,9 +172,9 @@
             メモ.AutoSize = true;
             メモ.Location = new Point(41, 551);
             メモ.Name = "メモ";
-            メモ.Size = new Size(38, 15);
+            メモ.Size = new Size(24, 15);
             メモ.TabIndex = 10;
-            メモ.Text = "label6";
+            メモ.Text = "メモ";
             // 
             // tbOut4
             // 
@@ -182,11 +184,30 @@
             tbOut4.Size = new Size(467, 71);
             tbOut4.TabIndex = 11;
             // 
+            // tbOut5
+            // 
+            tbOut5.Location = new Point(89, 640);
+            tbOut5.Multiline = true;
+            tbOut5.Name = "tbOut5";
+            tbOut5.Size = new Size(463, 79);
+            tbOut5.TabIndex = 12;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(48, 656);
+            label6.Name = "label6";
+            label6.Size = new Size(24, 15);
+            label6.TabIndex = 13;
+            label6.Text = "メモ";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(635, 644);
+            ClientSize = new Size(635, 724);
+            Controls.Add(label6);
+            Controls.Add(tbOut5);
             Controls.Add(tbOut4);
             Controls.Add(メモ);
             Controls.Add(label5);
@@ -228,5 +249,7 @@
         private Label label5;
         private Label メモ;
         private TextBox tbOut4;
+        private TextBox tbOut5;
+        private Label label6;
     }
 }
