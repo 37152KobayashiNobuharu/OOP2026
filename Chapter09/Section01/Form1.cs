@@ -26,10 +26,10 @@ namespace Section01 {
 
             if (birth.Date == today.Date) {
                 tbOut4.Text = $"’a¶“ú‚Í¡“ú‚Å‚·";
-            } else if (birth< today) {
+            } else if (birth < today) {
                 DateTime nextbirth = birth.AddYears(1);
                 tbOut4.Text = $"Ÿ‚Ì’a¶“ú‚Ü‚Å{(nextbirth - today).Days.ToString()}“ú";
-            } else if (birth>today) {
+            } else if (birth > today) {
                 tbOut4.Text = $"Ÿ‚Ì’a¶“ú‚Ü‚Å{(birth - today).Days.ToString()}“ú";
             }
             
