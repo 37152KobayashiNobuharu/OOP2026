@@ -27,7 +27,7 @@ namespace CarReportSystem {
                 Report = tbReport.Text,
                 Picture = pbPicture.Image,
             };
-           
+
             listCarReports.Add(carReport);
 
             SetCbAuthor(cbAuthor.Text);
@@ -79,8 +79,8 @@ namespace CarReportSystem {
         }
 
         private void dgvRecords_Click(object sender, EventArgs e) {
-            
-            if (dgvRecords.CurrentRow is null)return;
+
+            if (dgvRecords.CurrentRow is null) return;
             //|| (!dgvRecords.CurrentRow.Selected))
             dtpDate.Value = (DateTime)dgvRecords.CurrentRow.Cells["Date"].Value;
             cbAuthor.Text = (string)dgvRecords.CurrentRow.Cells["Author"].Value;
@@ -147,7 +147,7 @@ namespace CarReportSystem {
         }
 
         private void btModifyRecord_Click(object sender, EventArgs e) {
-            if (dgvRecords.CurrentRow is null)return;
+            if (dgvRecords.CurrentRow is null) return;
 
             listCarReports[dgvRecords.CurrentRow.Index].Date = dtpDate.Value;
             listCarReports[dgvRecords.CurrentRow.Index].Author = cbAuthor.Text;
@@ -161,7 +161,7 @@ namespace CarReportSystem {
 
         private void dgvRecords_SelectionChanged(object sender, EventArgs e) {
             if ((dgvRecords.CurrentRow is null)
-                || (!dgvRecords.CurrentRow.Selected))return;
+                || (!dgvRecords.CurrentRow.Selected)) return;
             dtpDate.Value = (DateTime)dgvRecords.CurrentRow.Cells["Date"].Value;
             cbAuthor.Text = (string)dgvRecords.CurrentRow.Cells["Author"].Value;
             SetRadioButtonMaker((MakerGroup)dgvRecords.CurrentRow.Cells["Maker"].Value);
@@ -170,6 +170,16 @@ namespace CarReportSystem {
             pbPicture.Image = (Image)dgvRecords.CurrentRow.Cells["Picture"].Value;
 
             ImputItemAllClear();//データグリッドビューを更新したら呼ぶメソッド
+        }
+
+        private void 終了ToolStripMenuItem_Click(object sender, EventArgs e) {
+            Application.Exit();
+        }
+
+        private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
+            if (cdColor.ShowDialog() == DialogResult.OK) {
+                this.BackColor = cdColor.Color;
+            }
         }
     }
 }
