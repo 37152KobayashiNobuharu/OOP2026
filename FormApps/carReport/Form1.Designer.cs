@@ -57,6 +57,7 @@
             色設定ToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator2 = new ToolStripSeparator();
             終了ToolStripMenuItem = new ToolStripMenuItem();
+            色設定ToolStripMenuItem1 = new ToolStripMenuItem();
             ヘルプHToolStripMenuItem = new ToolStripMenuItem();
             このアプリについてToolStripMenuItem = new ToolStripMenuItem();
             ofdPicFileOpen = new OpenFileDialog();
@@ -64,7 +65,7 @@
             statusStrip1 = new StatusStrip();
             cdColor = new ColorDialog();
             sfdReportFileSave = new SaveFileDialog();
-            ofdReportFileSave = new OpenFileDialog();
+            ofdReportFileOpen = new OpenFileDialog();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvRecords).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPicture).BeginInit();
@@ -244,7 +245,7 @@
             // 
             // tbReport
             // 
-            tbReport.Location = new Point(117, 280);
+            tbReport.Location = new Point(123, 280);
             tbReport.Multiline = true;
             tbReport.Name = "tbReport";
             tbReport.Size = new Size(382, 134);
@@ -367,7 +368,7 @@
             // 
             // ファイルAToolStripMenuItem
             // 
-            ファイルAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 開くToolStripMenuItem, 保存ToolStripMenuItem, toolStripSeparator1, 色設定ToolStripMenuItem, toolStripSeparator2, 終了ToolStripMenuItem });
+            ファイルAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { 開くToolStripMenuItem, 保存ToolStripMenuItem, toolStripSeparator1, 色設定ToolStripMenuItem, toolStripSeparator2, 終了ToolStripMenuItem, 色設定ToolStripMenuItem1 });
             ファイルAToolStripMenuItem.Name = "ファイルAToolStripMenuItem";
             ファイルAToolStripMenuItem.Size = new Size(67, 20);
             ファイルAToolStripMenuItem.Text = "ファイル(&F)";
@@ -375,40 +376,47 @@
             // 開くToolStripMenuItem
             // 
             開くToolStripMenuItem.Name = "開くToolStripMenuItem";
-            開くToolStripMenuItem.Size = new Size(180, 22);
+            開くToolStripMenuItem.Size = new Size(155, 22);
             開くToolStripMenuItem.Text = "開く...";
+            開くToolStripMenuItem.Click += 開くToolStripMenuItem_Click;
             // 
             // 保存ToolStripMenuItem
             // 
             保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            保存ToolStripMenuItem.Size = new Size(180, 22);
+            保存ToolStripMenuItem.Size = new Size(155, 22);
             保存ToolStripMenuItem.Text = "保存...";
             保存ToolStripMenuItem.Click += 保存ToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(152, 6);
             // 
             // 色設定ToolStripMenuItem
             // 
             色設定ToolStripMenuItem.Name = "色設定ToolStripMenuItem";
-            色設定ToolStripMenuItem.Size = new Size(180, 22);
+            色設定ToolStripMenuItem.Size = new Size(155, 22);
             色設定ToolStripMenuItem.Text = "色設定...";
             色設定ToolStripMenuItem.Click += 色設定ToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(177, 6);
+            toolStripSeparator2.Size = new Size(152, 6);
             // 
             // 終了ToolStripMenuItem
             // 
             終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
             終了ToolStripMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
-            終了ToolStripMenuItem.Size = new Size(180, 22);
+            終了ToolStripMenuItem.Size = new Size(155, 22);
             終了ToolStripMenuItem.Text = "終了(&X)";
             終了ToolStripMenuItem.Click += 終了ToolStripMenuItem_Click;
+            // 
+            // 色設定ToolStripMenuItem1
+            // 
+            色設定ToolStripMenuItem1.Name = "色設定ToolStripMenuItem1";
+            色設定ToolStripMenuItem1.Size = new Size(155, 22);
+            色設定ToolStripMenuItem1.Text = "色設定...";
             // 
             // ヘルプHToolStripMenuItem
             // 
@@ -442,9 +450,9 @@
             statusStrip1.TabIndex = 11;
             statusStrip1.Text = "statusStrip1";
             // 
-            // ofdReportFileSave
+            // ofdReportFileOpen
             // 
-            ofdReportFileSave.FileName = "openFileDialog1";
+            ofdReportFileOpen.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -535,6 +543,7 @@
         private StatusStrip statusStrip1;
         private ColorDialog cdColor;
         private SaveFileDialog sfdReportFileSave;
-        private OpenFileDialog ofdReportFileSave;
+        private OpenFileDialog ofdReportFileOpen;
+        private ToolStripMenuItem 色設定ToolStripMenuItem1;
     }
 }

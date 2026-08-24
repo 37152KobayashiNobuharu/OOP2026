@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace CarReportSystem {
     [Serializable]
-    public class CarReport {
+    public  class CarReport {
+        
         //列挙型
         public enum MakerGroup {
             なし, トヨタ, 日産, ホンダ, スバル, 輸入車, その他,
