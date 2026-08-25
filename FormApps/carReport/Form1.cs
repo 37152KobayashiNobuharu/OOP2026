@@ -245,8 +245,6 @@ namespace CarReportSystem {
                         FileMode.Create)) {
                         bf.Serialize(fs, listCarReports);
                     }
-
-
                 }
                 catch (Exception ex) {
                     tsslbMessage.Text = "ファイル書き出しエラー";
@@ -287,11 +285,6 @@ namespace CarReportSystem {
                     MessageBox.Show(ex.Message);
                 }
             }
-
-
-
         }
-
-        
     }
 }
