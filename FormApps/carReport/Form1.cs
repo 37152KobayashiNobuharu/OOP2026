@@ -20,28 +20,13 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             //設定ファイルを読み込み背景色を設定する（逆シリアル化）
-
-            //ファイルが存在するか？
-            if (File.Exists("setting.xml")) {
-                try {
-
-                    //P286以降を参考にする（ファイル名：setting.xml）
-                    using (var reader = XmlReader.Create("setting.xml")) {
-                        var serializer = new XmlSerializer(typeof(Settings));
-
-                        if (serializer.Deserialize(reader)is Settings loadedSettings) {
-                            settings = loadedSettings;
-                            //背景色設定
-                            BackColor = Color.FromArgb(Settings.Instance.MainFormBackColor);
-                        }
-                    }
-                }
-                catch (Exception ex) {
-                    tsslbMessage.Text = "設定ファイル読み込みエラー";
-                    MessageBox.Show(ex.Message);//←より具体的なエラーを出力         
-                }
-            } else {
-                tsslbMessage.Text = "設定ファイルがありません";
+            try {
+                Settings.Instance.Load();
+                BackColor = Color.FromArgb(Settings.Instance.MainFormBackColor);
+            }
+            catch (Exception ex) {
+                tsslbMessage.Text = "設定ファイル読み込みエラー";
+                MessageBox.Show(ex.Message);//←より具体的なエラーを出力
             }
         }
 
@@ -153,7 +138,7 @@ namespace CarReportSystem {
                 || (!dgvRecords.CurrentRow.Selected)) return;
 
             //削除したいインデックスを指定してリストから削除
-            
+
             if (dgvRecords.CurrentRow?.DataBoundItem is not CarReport carReport) {
                 tsslbMessage.Text = "削除するレポートを選択してください";
                 return;
@@ -165,7 +150,7 @@ namespace CarReportSystem {
         }
         //データグリッドビューを更新したら呼ぶメソッド
         private void InputItemsUpdate() {
-            if (dgvRecords.CurrentRow is null 
+            if (dgvRecords.CurrentRow is null
                 || !dgvRecords.CurrentRow.Selected)
                 InputItemsAllClear();
         }
@@ -233,11 +218,7 @@ namespace CarReportSystem {
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
             //設定ファイルへ色情報を保存する処理（シリアル化）
             //P284以降を参考にする（ファイル名：setting.xml）
-
-            using (var writer = XmlWriter.Create("setting.xml")) {
-                var serializer = new XmlSerializer(Settings.Instance.GetType());
-                serializer.Serialize(writer, Settings.Instance);
-            }
+            Settings.Instance.Save();
         }
 
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
