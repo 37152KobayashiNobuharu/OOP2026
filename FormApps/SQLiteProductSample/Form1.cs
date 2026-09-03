@@ -129,7 +129,6 @@ public partial class Form1 : Form {
             tbPrice.SelectAll();
             return false;
         }
-
         return true;
     }
 
