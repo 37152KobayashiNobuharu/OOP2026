@@ -79,7 +79,6 @@ public class ProductRepository {
 
         using var command = connection.CreateCommand();
 
-
         command.CommandText =
             """
             UPDATE Products
@@ -92,9 +91,11 @@ public class ProductRepository {
         command.Parameters.AddWithValue("$price", product.Price);
         command.Parameters.AddWithValue("$id", product.Id);
 
+        command.ExecuteNonQuery();
+
         //更新件数が0なら対象が存在しない
-        if (command.ExecuteNonQuery() == 0)
-            throw new InvalidOperationException("修正対象の商品が見つかりませんでした。");
+        //if (command.ExecuteNonQuery() == 0)
+        //    throw new InvalidOperationException("修正対象の商品が見つかりませんでした。");
     }
     public void Delete(int id) {
         using var connection = Database.GetConnection();
