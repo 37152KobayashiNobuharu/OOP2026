@@ -1,3 +1,4 @@
+using SQLiteProductSample;
 using System.ComponentModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
@@ -6,6 +7,10 @@ using static CarReportSystem.CarReport;
 
 namespace CarReportSystem {
     public partial class Form1 : Form {
+
+        private readonly BindingList<CarReport> _CarReports = new();
+        
+        private readonly CarReportRepository _repository = new();
 
         //カーレポート管理用リスト
         BindingList<CarReport> listCarReports = new BindingList<CarReport>();
@@ -16,9 +21,11 @@ namespace CarReportSystem {
         public Form1() {
             InitializeComponent();
             dgvRecords.DataSource = listCarReports;
+
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+
             //設定ファイルを読み込み背景色を設定する（逆シリアル化）
             try {
                 Settings.Instance.Load();
