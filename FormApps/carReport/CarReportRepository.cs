@@ -102,9 +102,13 @@ public class CarReportRepository {
             WHERE Id = $id;
             """;
 
-        command.Parameters.AddWithValue("$name", product.Name);
-        command.Parameters.AddWithValue("$price", product.Price);
-        command.Parameters.AddWithValue("$id", product.Id);
+        command.Parameters.AddWithValue("$Id", carReport.Id);
+        command.Parameters.AddWithValue("$Date", carReport.Date);
+        command.Parameters.AddWithValue("$Author", carReport.Author);
+        command.Parameters.AddWithValue("$Maker", carReport.Maker);
+        command.Parameters.AddWithValue("$CarName", carReport.CarName);
+        command.Parameters.AddWithValue("$Report", carReport.Report);
+        command.Parameters.AddWithValue("$Picture", carReport.Picture);
 
         command.ExecuteNonQuery();
 
