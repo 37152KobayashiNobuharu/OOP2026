@@ -261,6 +261,7 @@ namespace CarReportSystem {
         private void ‚±‚ÌƒAƒvƒŠ‚É‚Â‚¢‚ÄToolStripMenuItem_Click(object sender, EventArgs e) {
             var fm = new Form();
             fm.ShowDialog();
+            
         }
     }
 }
