@@ -88,6 +88,7 @@ public class CarReportRepository {
         command.Parameters.AddWithValue("$maker", carReport.Maker);
         command.Parameters.AddWithValue("$carName", carReport.CarName);
         command.Parameters.AddWithValue("$report", carReport.Report);
+        
 
         //ImageŒ^‚Ì‰æ‘œ‚ğASQLite‚Ö•Û‘¶‚Å‚«‚ébyte”z—ñ‚É•ÏŠ·‚·‚é
         byte[]? pictureData = ImageToBytes(carReport.Picture);
