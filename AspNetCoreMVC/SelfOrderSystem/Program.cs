@@ -47,7 +47,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseSession() // このリクエストでSessionを使えるようにする
+app.UseSession(); // このリクエストでSessionを使えるようにする
 
 app.UseAuthorization();
 
