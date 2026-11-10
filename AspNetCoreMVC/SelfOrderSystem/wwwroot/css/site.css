@@ -1,39 +1,174 @@
-html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
+/* ==========================
+   OVERWATCH STYLE
+========================== */
 
 body {
-  margin-bottom: 60px;
+    background: linear-gradient(to bottom, #eef2f7, #dce3ea);
+    color: #2d3748;
+    font-family: "Segoe UI", sans-serif;
 }
 
-/* 商品写真を一定の高さで表示 */
-.so-product-photo {
-    display: block;
-    width: 100%;
-    height: 190px;
-    object-fit: cover;
-    background: #f0eee9;
+/* ナビバー */
+.navbar {
+    background: #202632 !important;
+    border-bottom: 4px solid #f99e1a;
+    box-shadow: 0 4px 15px rgba(0,0,0,.15);
 }
-/* 写真の登録がない商品に表示 */
-.so-product-photo--empty {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 0.95rem;
+
+.navbar-brand {
+    color: #f99e1a !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #f99e1a !important;
+}
+
+/* タイトル */
+h1, h2, h3 {
+    font-weight: 800;
+    color: #202632;
+    text-transform: uppercase;
+}
+
+h1 {
+    border-left: 8px solid #f99e1a;
+    padding-left: 15px;
+}
+
+/* 商品カード */
+.card,
+.menu-card {
+    background: rgba(255,255,255,.95);
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
+    transition: .3s;
+}
+
+.card:hover,
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(249,158,26,.3);
+}
+
+/* 商品画像 */
+.card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+/* 商品名 */
+.card-title {
+    font-weight: 800;
+    color: #202632;
+}
+
+/* 価格 */
+.price {
+    color: #f99e1a;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* ボタン */
+.btn-primary {
+    background: #f99e1a;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 25px;
+    transition: .3s;
+}
+
+.btn-primary:hover {
+    background: #ffb648;
+    transform: scale(1.05);
+}
+
+.btn-success {
+    background: #00b894;
+    border: none;
+    border-radius: 30px;
+}
+
+.btn-danger {
+    background: #ff4757;
+    border: none;
+    border-radius: 30px;
+}
+
+/* 入力フォーム */
+.form-control,
+.form-select {
+    border-radius: 15px;
+    border: 2px solid #d6dee8;
+    background: white;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #f99e1a;
+    box-shadow: 0 0 15px rgba(249,158,26,.3);
+}
+
+/* テーブル */
+.table {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table thead {
+    background: #202632;
+    color: white;
+}
+
+.table tbody tr:hover {
+    background: #fff7ec;
+}
+
+/* 注文ボタン */
+.order-btn {
+    width: 100%;
+    background: #f99e1a;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    transition: .3s;
+}
+
+.order-btn:hover {
+    background: #ffb648;
+    box-shadow: 0 0 20px rgba(249,158,26,.5);
+}
+
+/* アニメーション */
+.card,
+.menu-card,
+.btn {
+    animation: fadeIn .4s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
