@@ -172,3 +172,47 @@ h1 {
         transform: translateY(0);
     }
 }
+
+/* メニュー文字を大きく */
+.navbar-nav .nav-link {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: white !important;
+}
+
+/* タイトル */
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #00e5ff !important;
+}
+
+/* ナビ全体 */
+.navbar {
+    min-height: 80px;
+}
+
+/* 白背景を消してダーク化 */
+.navbar-light {
+    background: rgba(15,23,42,.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+/* 卓番号と状態 */
+.staff-order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.staff-table-number {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.staff-status {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
