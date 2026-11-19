@@ -1,6 +1,6 @@
 ﻿@using SelfOrderSystem.Models
 @model List<Order>
-
+    
 @{
     ViewData["Title"] = "店舗 注文管理";
 
@@ -53,16 +53,21 @@
         <div class="staff-order-grid">
 
             @foreach (var order in Model) {
-                // 注文全体の合計金額
-                var total = order.Items.Sum(
-                i => i.UnitPrice * i.Quantity);
+                var total = order.Items.Sum(i => i.UnitPrice * i.Quantity);
+                var itemCount = order.Items.Sum(i => i.Quantity);
+                var elapsedMinutes = (int)(DateTime.UtcNow - order.OrderedAtUtc).TotalMinutes;
 
-                <article class="staff-order-card">
+                <article class="staff-order-card
+            @(order.Status == OrderStatus.New
+                                 ? "card-new"
+                                 : order.Status == OrderStatus.Cooking
+                                 ? "card-cooking"
+                                 : "card-served")">
 
-                    @* 卓番・注文ID・注文時刻 *@
                     <div class="staff-order-top">
 
                         <div class="staff-order-identity">
+
                             <span class="staff-table-number">
                                 卓 @order.TableNumber
                             </span>
@@ -75,25 +80,32 @@
                                 <time class="staff-order-time">
                                     @order.OrderedAtUtc.ToLocalTime().ToString("yyyy/MM/dd HH:mm")
                                 </time>
+
+                                <div class="staff-order-elapsed">
+                                    経過 @elapsedMinutes 分
+                                </div>
                             </div>
+
                         </div>
 
-                        @* 現在の注文状態 *@
                         <span class="staff-status
-                                            @(order.Status == OrderStatus.Served
-                                                ? "staff-status-served"
-                                                : order.Status == OrderStatus.Cooking
-                                                ? "staff-status-cooking"
-                                                : "staff-status-new")">
-                    @order.Status.ToJapanese()
-                </span>
-            </div>
+                        @(order.Status == OrderStatus.Served
+                                              ? "staff-status-served"
+                                              : order.Status == OrderStatus.Cooking
+                                              ? "staff-status-cooking"
+                                              : "staff-status-new")">
 
-                    @* 商品一覧 *@
+                    @order.Status.ToJapanese()
+
+                        </span>
+
+                    </div>
+
                     <div class="staff-order-items">
 
                 @foreach (var item in order.Items) {
                             <div class="staff-order-item">
+
                                 <span>
                                     @item.Product?.Name
                                 </span>
@@ -101,23 +113,23 @@
                                 <strong>
                                     × @item.Quantity
                                 </strong>
+
                             </div>
                         }
 
                     </div>
 
-                    @* 合計金額と操作 *@
                     <div class="staff-order-bottom">
 
                         <div class="staff-total">
-                            <span>注文合計</span>
+                            <span>@itemCount 点</span>
+
                             <strong>
-                                @total.ToString("N0")
+                                @($"{total:N0}円")
                             </strong>
                         </div>
 
                         @if (order.Status != OrderStatus.Served) {
-                            @* 既存の状態変更処理を呼び出す *@
                             <form asp-controller="Staff"
                                   asp-action="Advance"
                                   method="post">
@@ -127,16 +139,19 @@
                                        value="@order.Id" />
 
                                 <button type="submit"
-                                        class="btn staff-action-button">
-                                    @order.Status.NextActionLabel()
-                                    →
+                                        class="btn staff-action-button @(order.Status == OrderStatus.New ? "btn-start" : "btn-complete")">
+                                    @order.Status.NextActionLabel() →
                                 </button>
+
+                       
+
                             </form>
-                        } else {
+                                } else {
                             <span class="staff-completed">
                                 完了
                             </span>
                         }
+
                     </div>
 
                 </article>

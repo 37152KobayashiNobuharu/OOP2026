@@ -85,6 +85,16 @@
     gap: 25px;
 }
 
+.staff-order-card {
+    position: relative;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    transition: .3s;
+}
+
 .staff-order-card::before {
     content: "";
     position: absolute;
@@ -104,13 +114,15 @@
 
 /* 卓番号 */
 .staff-table-number {
-    background: linear-gradient(135deg,#00e5ff,#0ea5e9);
-    color: #001;
-    padding: 8px 15px;
+    display: inline-block;
+    background: #ff9800;
+    color: #ffffff;
+    padding: 12px 20px;
     border-radius: 12px;
-    font-weight: 800;
+    font-size: 2rem;
+    font-weight: 900;
+    box-shadow: 0 0 20px rgba(255,152,0,.6);
 }
-
 /* 状態 */
 .staff-status {
     padding: 8px 16px;
@@ -136,11 +148,9 @@
 /* 商品一覧 */
 .staff-order-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
-    padding: 10px 0;
-    border-bottom: none;
+    gap: 10px;
+    padding: 8px 0;
 }
 
     .staff-order-item span:first-child {
@@ -190,4 +200,63 @@
     padding: 100px 30px;
     border-radius: 30px;
     background: rgba(255,255,255,.05);
+}
+
+.staff-table-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #4fc3f7;
+}
+
+.staff-order-elapsed {
+    color: #ffb74d;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+.card-new {
+    border-left: 5px solid #ff9800;
+}
+
+.card-cooking {
+    border-left: 5px solid #2196f3;
+}
+
+.card-served {
+    border-left: 5px solid #4caf50;
+}
+
+.btn-start {
+    background: #ff9800;
+    color: #fff;
+}
+
+.btn-complete {
+    background: #4caf50;
+    color: #fff;
+}
+
+.staff-order-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.staff-order-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.staff-order-identity {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.staff-order-items {
+    margin: 15px 0;
 }
